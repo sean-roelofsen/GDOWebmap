@@ -1,1 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GDO WI Contact List</title>
+    <link rel="icon" href='https://raw.githubusercontent.com/sean-roelofsen/YDHPTO-Region-Geojsons/main/favicon.ico' type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+        /* Your existing CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-size: 14px; /* Slightly increased body font size */
+        }
+        h2 {
+            font-size: 16px; /* Slightly decreased title font size */
+            line-height: 1.0; /* Decreased space between lines */
+        }
+        .contact-table {
+            width: 100%;
+            text-align: left;
+        }
+        .contact-row {
+            display: flex;
+            align-items: center;
+            padding: 4px;
+            border-bottom: 1.5px solid #ddd;
+            justify-content: space-between;
+        }
+        .contact-cell {
+            flex: 1;
+        }
+        .icon-container {
+            flex-basis: 50%;
+            display: flex;
+            justify-content: flex-start;
+        }
+        .icon {
+            margin-right: 40px; /* Further increased spacing */
+            cursor: pointer;
+            font-size: 1.5em; /* Extra large icons */
+        }
+        .extra-info {
+            margin-top: 5px;
+            display: flex;
+            flex-wrap: wrap; /* Allows items to wrap onto the next line */
+        }
+        .extra-info h3 {
+            width: 100%; /* Full width to ensure it's on its own line */
+        }
+        .extra-info p {
+            margin: 5px 0;
+            flex: 1 1 50%; /* Flex grow, shrink, and basis set to 50% */
+        }
+
+        @media screen and (max-width: 768px) {
+            .contact-cell {
+                font-size: 14px;
+            }
+            .icon-container {
+                flex-basis: 100%;
+                justify-content: flex-end; /* Right-justify icons on mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<h2><u>CR Water Inspector Contacts (click to send)</u></h2>
+<div class="contact-table" id="contactList"></div>
+
+<div class="extra-info">
+    <!-- Your extra info here -->
+    <h3>Other contacts</h3>
+    <!--<a href="tel:123-456-7890" class="icon"><i class="fa-solid fa-phone">YD-HP Water DutyLine</i></a>-->
+    <p><a href="tel:18002686063">SAC ERP#:800-268-6063</a></p>
+    <p><a href="mailto:sac.moe.sac@ontario.ca">@MOE.SACemail </a></p>
+    <!--<p><b><a href="tel:9054275617">YD-HP Water DutyLine:905-427-5617</a></b></p>
+    
+    <p><a href="mailto:awqisdwyd@ontario.ca">@AWQI-YD-DW Inbox</a></p>
+    <p><a href="mailto:awqisdwhp@ontario.ca">@AWQI-HP-DW Inbox</a></p>
+    
+    <p><a href="tel:9053198292">Halton-Peel DutyOfficer:905-319-8292</a></p>
+    <p><a href="tel:9054275633">York-Durham DutyOfficer:905-427-5633</a></p>
+    <p><a href="tel:4163263381">Toronto DutyOfficer:416-326-3381</a></p>
+-->
+</div>
+
+<script>
+    // Define your contacts as an array of objects
+    const contacts = [
+    {
+        name: "Lisa Williamson",
+        email: "lisa.williamson@ontario.ca",
+        phone: "2269798468",
+        teamsUrl: "https://teams.microsoft.com/l/chat/0/0?users=lisa.williamson@ontario.ca"
+    },
+    {
+        name: "Martha Weber",
+        email: "martha.weber@ontario.ca",
+        phone: "5198305977",
+        teamsUrl: "https://teams.microsoft.com/l/chat/0/0?users=martha.weber@ontario.ca"
+    },
+    {
+        name: "Karla Everard",
+        email: "karla.everard@ontario.ca",
+        phone: "5198306451",
+        teamsUrl: "https://teams.microsoft.com/l/chat/0/0?users=karla.everard@ontario.ca"
+    },
+    {
+        name: "Rick Neubrand",
+        email: "rick.neubrand@ontario.ca",
+        phone: "5195469301",
+        teamsUrl: "https://teams.microsoft.com/l/chat/0/0?users=rick.neubrand@ontario.ca"
+    },
+    {
+        name: "Manpreet Dhesi",
+        email: "manpreet.dhesi@ontario.ca",
+        phone: "5198234752",
+        teamsUrl: "https://teams.microsoft.com/l/chat/0/0?users=manpreet.dhesi@ontario.ca"
+    },
+    {
+        name: "Ivanna Okroukh",
+        email: "ivanna.okroukh@ontario.ca",
+        phone: "5195462535",
+        teamsUrl: "https://teams.microsoft.com/l/chat/0/0?users=ivanna.okroukh@ontario.ca"
+    },
+    {
+        name: "Carola Serwotka",
+        email: "carola.serwotka@ontario.ca",
+        phone: "5198377457",
+        teamsUrl: "https://teams.microsoft.com/l/chat/0/0?users=carola.serwotka@ontario.ca"
+    },
+    {
+        name: "Todd Paylor",
+        email: "todd.paylor@ontario.ca",
+        phone: "5198301050",
+        teamsUrl: "https://teams.microsoft.com/l/chat/0/0?users=todd.paylor@ontario.ca"
+    },
+    {
+        name: "James Pickering",
+        email: "james.pickering@ontario.ca",
+        phone: "5198359184",
+        teamsUrl: "https://teams.microsoft.com/l/chat/0/0?users=james.pickering@ontario.ca"
+    },
+    {
+        name: "Corinne Taylor",
+        email: "corinne.taylor@ontario.ca",
+        phone: "5195463730",
+        teamsUrl: "https://teams.microsoft.com/l/chat/0/0?users=corinne.taylor@ontario.ca"
+    }
+    // Add more contacts as needed
+];
+
+
+
+teamsUrl: "https://teams.microsoft.com/l/chat/0/0?users=blake.turner@ontario.ca"
+    // Function to create contact HTML
+    function createContactHTML(contact) {
+        return `
+            <div class="contact-row">
+                <div class="contact-cell">${contact.name}</div>
+                <div class="icon-container">
+                    <a href="mailto:${contact.email}" class="icon"><i class="fa-solid fa-at"></i></a>
+                    <a href="tel:${contact.phone}" class="icon"><i class="fa-solid fa-phone"></i></a>
+                    <a href="${contact.teamsUrl}" target="_blank" class="icon"><img src="https://raw.githubusercontent.com/sean-roelofsen/YDHPTO-Region-Geojsons/main/TeamsIcon.png" alt="Teams" width="20" height="20"></a>
+                </div>
+            </div>
+        `;
+    }
+
+    // Generate and display the contacts
+    document.getElementById('contactList').innerHTML = contacts.map(createContactHTML).join('');
+</script>
+
+</body>
+</html>
 
